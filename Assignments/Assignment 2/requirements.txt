@@ -1,0 +1,13 @@
+numpy>=2.3.2
+torch>=2.8.0
+torchvision>=0.23.0
+transformers>=4.55.0
+matplotlib>=3.10.0
+datasets>=4.0.0
+pandas>=2.3.0
+ipykernel>=6.30.0
+jupyter>=1.1.1
+pillow==11.3.0
+scikit-learn>=1.7.0
+tqdm>4.67.0
+tensorboard

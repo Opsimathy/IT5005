@@ -31,10 +31,11 @@ class MultiHeadAttention(nn.Module):
         #############################################################################
         #Initialization of weight matrices        
         #############################################################################
-        self.W_q =                #Your code goes here 
-        self.W_k =                #Your code goes here 
-        self.W_v =                #Your code goes here 
-        self.W_o =                #Your code goes here  
+        self.W_q = nn.Linear(d_model, d_model)   #Your code goes here 
+        self.W_k = nn.Linear(d_model, d_model)   #Your code goes here 
+        self.W_v = nn.Linear(d_model, d_model)   #Your code goes here 
+        self.W_o = nn.Linear(d_model, d_model)   #Your code goes here 
+        
 
     def scaled_dot_product_attention(self, Q, K, V, mask=None):
         scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.d_k)  # (B, H, T, T)
@@ -63,8 +64,8 @@ class PositionwiseFeedForward(nn.Module):
         #############################################################################
         #Initialization of linear layers        
         #############################################################################
-        self.linear1 =                  #Your code goes here  
-        self.linear2 =                  #Your code goes here 
+        self.linear1 =  nn.Linear(d_model, d_ff)                #Your code goes here  
+        self.linear2 =  nn.Linear(d_ff, d_model)                #Your code goes here 
 
     def forward(self, x):
         return self.linear2(F.relu(self.linear1(x)))     
